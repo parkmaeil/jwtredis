@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{/js/login.js}"></script>
+    </head>
+<body onload="checkLoginStatus()">
+ JWT 로그인 :  사용자별(권한별) 메뉴 구분
+<ul id="menu">
+    <li><a href="#">Home</a></li>
+    <li id="userMenu" style="display: none;"><a href="javascript:showUserData()">User Menu</a></li>
+    <li id="managerMenu" style="display: none;"><a href="javascript:showManagerData()">Manager Menu</a></li>
+    <li id="adminMenu" style="display: none;"><a href="javascript:showAdminData()">Admin Menu</a></li>
+</ul>
+<hr/>
+<!-- 로그인 -->
+<form id="loginFom">
+    Username:<input type="text" name="username" id="username"/><br/>
+    Password:<input type="password" name="password" id="password"/><br/>
+    <button type="button" onClick="login()">Login</button>
+</form>
+
+<!-- 로그아웃-->
+<div id="greeting" style="display:none;">
+    <p>Welcome, <span id="usernameDisplay"></span>!</p>
+    <button id="logoutBtn" type="button" onclick="logout()">Logout</button>
+</div>
+<hr/>
+<div id="detailView"></div>
+
+</body>
+</html>

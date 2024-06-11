@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+# JDBC
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jwt
+    username: root
+    password: 12345
+  # JPA
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update # DTO(Object)---ORM---TABLE(Entity, R)
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql : true
+
+  data:
+    redis:
+      host: localhost # 로컬에서 테스트 할 때는 localhost로 사용
+      port: 6379
